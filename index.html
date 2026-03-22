@@ -1,0 +1,189 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UDAAN STUDIES</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="nav-content">
+    <div class="logo">🎓 <span>UDAAN STUDIES</span></div>
+    <div class="badge">CLASS 10</div>
+  </div>
+    <div class="badge">CLASS 10</div>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Choose Your <span class="gradient">Subject</span></h1>
+  <div class="grid" id="subjects-grid"></div>
+
+  <div id="papers-view" class="hidden">
+    <button onclick="goBack()">← Back</button>
+    <h2 id="papers-title"></h2>
+    <div class="paper-card">
+      <div id="pa</main>
+
+<footer>
+  © 2026 UDAANSTUDIES. All rights reserved.
+</footer>st"></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 UDAANSTUDIES. All rights reserved.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- style.css -->
+:root {
+  --primary: #0f172a;
+  --accent: #f59e0b;
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --border: #e5e7eb;
+}
+
+body {
+  margin: 0;
+  font-family: 'In.navbar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  background: var(--primary);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}f;
+}
+
+.navbar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  background: var(--primary);
+  color: white;
+  padding: 6px 10px;
+  border
+
+.container {
+  max-width: 1100px;
+to;
+  padding: 40px 20px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.hidden { display: none; }
+
+.paper-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.pdf-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.download-btn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+}
+
+
+<!-- script.js -->
+const data = {
+  English: [
+    { title: "Final Paper", year: "2024", file: "english.pdf" }
+  ],
+  Science: [
+    { title: "Final Paper", year: "2024", file: "science.pdf" }
+  ],
+  Mathematics: [
+    { title: "Final Paper", year: "2024", file: "math.pdf" }
+  ]
+};
+
+const subjectsGrid = document.getElementById("subjects-grid");
+const papersView = document.getElementById("papers-view");
+const papersList = document.getElementById("papers-list");
+const papersTitle = document.getElementById("papers-title");
+
+Object.keys(data).forEach(subject => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `<h3>${subject}</h3>`;
+  card.onclick = () => showPapers(subject);
+  subjectsGrid.appendChild(card);
+});
+
+function showPapers(subject) {
+  subjectsGrid.style.display = "none";
+  papersView.classList.remove("hidden");
+  papersTitle.innerText = subject;
+  papersList.innerHTML = "";
+
+  data[subject].forEach(p => {
+    const div = document.createElement("div");
+    div.className = "pdf-card";
+    div.innerHTML = `
+      <span>${p.title} (${p.year})</span>
+      <button class="download-btn" onclick="window.open('${p.file}')">Download</button>
+    `;
+    papersList.appendChild(div);
+  });
+}
+
+function goBack() {
+  papersView.classList.add("hidden");
+  subjectsGrid.style.display = "grid";
+}
