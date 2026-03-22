@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>ZENVORN — Class 9 Finals</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<div id="download-modal" class="modal">
+  <div class="modal-content">
+    <h3>Download PDF</h3>
+    <p>This file will be downloaded to your device.</p>
+    <div class="modal-buttons">
+      <button onclick="closeModal()" class="cancel">Cancel</button>
+      <button id="confirm-download" class="confirm">Download</button>
+    </div>
+  </div>
+</div>
+  
+<body>
+
+<header class="navbar">
+  <div class="nav-content">
+    <div class="logo">
+      🎓 <span>ZENVORN</span>
+    </div>
+    <div class="badge">Class 9 Finals</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Subjects View -->
+  <section id="subjects-view">
+    <h1>Choose Your <span class="gradient">Subject</span></h1>
+    <div class="grid" id="subjects-grid"></div>
+  </section>
+
+  <!-- Categories View -->
+  <section id="categories-view" class="hidden">
+    <button onclick="goBackSubjects()">← Back</button>
+    <h2 id="category-title"></h2>
+    <div class="grid" id="categories-grid"></div>
+  </section>
+
+  <!-- Papers View -->
+  <section id="papers-view" class="hidden">
+    <button onclick="goBackCategories()">← Back</button>
+    <h2 id="papers-title"></h2>
+    <div class="paper-card">
+      <div id="papers-list"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2025 ZENVORN. All rights reserved.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
